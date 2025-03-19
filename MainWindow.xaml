@@ -9,7 +9,6 @@
     <Window.Resources>
         <Style x:Key="CustomDataGridColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
             <Setter Property="Height" Value="60"/>
-            <!-- Увеличенная высота для поддержки переноса -->
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="ContentTemplate">
                 <Setter.Value>
@@ -48,20 +47,21 @@
         <Label Content="Фамилия, и., о." HorizontalAlignment="Left" Margin="341,142,0,0" VerticalAlignment="Top" FontSize="8"/>
         <Label Content="Табельный номер" HorizontalAlignment="Left" Margin="465,155,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Margin="579,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <DataGrid Margin="10,186,10,10" SelectionChanged="DataGrid_SelectionChanged">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="" Binding="{Binding Empty}" Width="40" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
-                <DataGridTextColumn Header="Сумма фактической реализации" Binding="{Binding Sum}" Width="140" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
-                <DataGridTextColumn Header="Дата" Binding="{Binding Data}" Width="80" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
-                <DataGridTextColumn Header="Номер" Binding="{Binding Number}" Width="60" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
-                <DataGridTextColumn Header="Стоимость по учетным ценам" Binding="{Binding AccountingCost}" Width="160" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
-                <DataGridTextColumn Header="Продукты" Binding="{Binding Products}" Width="*" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
-                <DataGridTextColumn Header="Специи и соль" Binding="{Binding SpicesAndSalt}" Width="*" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
-                <DataGridTextColumn Header="Тара" Binding="{Binding Containers}" Width="*" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
-                <DataGridTextColumn Header="Стеклотара" Binding="{Binding GlassContainers}" Width="*" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
-                <DataGridTextColumn Header="Отметки бухгалтерии" Binding="{Binding Something2}" Width="*" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <DataGrid ItemsSource="{Binding Rows}" Margin="10,186,10,10" SelectionChanged="DataGrid_SelectionChanged" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="" Binding="{Binding Empty}" Width="40" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
+                    <DataGridTextColumn Header="Сумма фактической реализации" Binding="{Binding Sum}" Width="140" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
+                    <DataGridTextColumn Header="Дата" Binding="{Binding Data}" Width="80" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
+                    <DataGridTextColumn Header="Номер" Binding="{Binding Number}" Width="60" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
+                    <DataGridTextColumn Header="Стоимость по учетным ценам" Binding="{Binding AccountingCost}" Width="160" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
+                    <DataGridTextColumn Header="Продукты" Binding="{Binding Products}" Width="*" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
+                    <DataGridTextColumn Header="Специи и соль" Binding="{Binding SpicesAndSalt}" Width="*" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
+                    <DataGridTextColumn Header="Тара" Binding="{Binding Containers}" Width="*" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
+                    <DataGridTextColumn Header="Стеклотара" Binding="{Binding GlassContainers}" Width="*" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
+                    <DataGridTextColumn Header="Отметки бухгалтерии" Binding="{Binding AccountingDepartmentMarks}" Width="*" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
     </Grid>
 </Window>

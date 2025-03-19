@@ -13,5 +13,6 @@ namespace interfaces
     /// </summary>
     public partial class App : Application
     {
+
     }
 }
