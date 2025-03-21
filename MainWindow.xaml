@@ -48,45 +48,53 @@
         <Label Content="Фамилия, и., о." HorizontalAlignment="Left" Margin="341,142,0,0" VerticalAlignment="Top" FontSize="8"/>
         <Label Content="Табельный номер" HorizontalAlignment="Left" Margin="465,155,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Margin="579,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <DataGrid ItemsSource="{Binding Rows}" CanUserAddRows="False" Margin="10,186,10,314" SelectionChanged="DataGrid_SelectionChanged" AutoGenerateColumns="False" MaxHeight="300">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="" Binding="{Binding Empty}" Width="140" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
-                <DataGridTextColumn Header="Сумма фактической реализации" Binding="{Binding Sum}" Width="90" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
-                <DataGridTextColumn Header="Дата" Binding="{Binding Data}" Width="60" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
-                <DataGridTextColumn Header="Номер" Binding="{Binding Number}" Width="60" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
-                <DataGridTextColumn Header="Стоимость по учетным ценам" Binding="{Binding AccountingCost}" Width="100" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
-                <DataGridTextColumn Header="Продукты" Binding="{Binding Products}" Width="70" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
-                <DataGridTextColumn Header="Специи и соль" Binding="{Binding SpicesAndSalt}" Width="*" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
-                <DataGridTextColumn Header="Тара" Binding="{Binding Containers}" Width="60" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
-                <DataGridTextColumn Header="Стеклотара" Binding="{Binding GlassContainers}" Width="75" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
-                <DataGridTextColumn Header="Отметки бухгалтерии" Binding="{Binding AccountingDepartmentMarks}" Width="*" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <Label Content="Приложение" HorizontalAlignment="Left" Margin="10,469,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="96,473,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="610"/>
-        <Label Content="Документов" HorizontalAlignment="Left" Margin="707,468,0,0" VerticalAlignment="Top"/>
-        <Label Content="Количество прописью" HorizontalAlignment="Left" Margin="96,456,0,0" VerticalAlignment="Top" FontSize="8"/>
-        <Label Content="Работники" HorizontalAlignment="Left" Margin="10,502,0,0" VerticalAlignment="Top"/>
-        <Label Content="Фамилия, и., о." HorizontalAlignment="Left" Margin="96,486,0,0" VerticalAlignment="Top" FontSize="8"/>
-        <ComboBox HorizontalAlignment="Left" Margin="96,502,0,0" VerticalAlignment="Top" Width="120" IsEditable="True"/>
-        <Label Content="Фамилия, и., о." HorizontalAlignment="Left" Margin="226,486,0,0" VerticalAlignment="Top" FontSize="8"/>
-        <ComboBox HorizontalAlignment="Left" Margin="226,502,0,0" VerticalAlignment="Top" Width="120" IsEditable="True"/>
-        <Label Content="Фамилия, и., о." HorizontalAlignment="Left" Margin="342,486,0,0" VerticalAlignment="Top" FontSize="8"/>
-        <ComboBox HorizontalAlignment="Left" Margin="356,502,0,0" VerticalAlignment="Top" Width="120" IsEditable="True"/>
-        <Label Content="Фамилия, и., о." HorizontalAlignment="Left" Margin="96,529,0,0" VerticalAlignment="Top" FontSize="8"/>
-        <ComboBox HorizontalAlignment="Left" Margin="96,544,0,0" VerticalAlignment="Top" Width="120" IsEditable="True"/>
-        <Label Content="Фамилия, и., о." HorizontalAlignment="Left" Margin="226,529,0,0" VerticalAlignment="Top" FontSize="8"/>
-        <ComboBox HorizontalAlignment="Left" Margin="226,544,0,0" VerticalAlignment="Top" Width="120" IsEditable="True"/>
-        <Label Content="Фамилия, и., о." HorizontalAlignment="Left" Margin="356,529,0,0" VerticalAlignment="Top" FontSize="8"/>
-        <ComboBox HorizontalAlignment="Left" Margin="356,544,0,0" VerticalAlignment="Top" Width="120" IsEditable="True"/>
-        <Label Content="Ведомость с документами принял и проверил" HorizontalAlignment="Left" Margin="10,574,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="280,576,0,0" VerticalAlignment="Top" Width="120" IsEditable="True"/>
-        <Label Content="Должность" HorizontalAlignment="Left" Margin="280,561,0,0" VerticalAlignment="Top" FontSize="8"/>
-        <Label Content="Решение руководителя" HorizontalAlignment="Left" Margin="10,597,0,0" VerticalAlignment="Top"/>
-        <TextBox AcceptsReturn="True" Margin="10,621,10,35" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" MinHeight="100" MaxHeight="300" />
-        <Label Content="Руководитель" HorizontalAlignment="Left" Margin="456,574,0,0" VerticalAlignment="Top"/>
-        <Label Content="Должность" HorizontalAlignment="Left" Margin="550,561,0,0" VerticalAlignment="Top" FontSize="8"/>
-        <ComboBox HorizontalAlignment="Left" Margin="550,576,0,0" VerticalAlignment="Top" Width="120" IsEditable="True"/>
-        <Button Content="Сохранить" HorizontalAlignment="Left" Margin="10,734,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.555,-0.607"/>
+        <TabControl Margin="10, 186, 10, 10">
+            <TabItem Header="Таблица">
+                <DataGrid ItemsSource="{Binding Rows}" CanUserAddRows="False" Margin="0,0,0,0" SelectionChanged="DataGrid_SelectionChanged" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="" Binding="{Binding Empty}" Width="140" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
+                        <DataGridTextColumn Header="Сумма фактической реализации" Binding="{Binding Sum}" Width="90" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
+                        <DataGridTextColumn Header="Дата" Binding="{Binding Data}" Width="60" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
+                        <DataGridTextColumn Header="Номер" Binding="{Binding Number}" Width="60" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
+                        <DataGridTextColumn Header="Стоимость по учетным ценам" Binding="{Binding AccountingCost}" Width="100" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
+                        <DataGridTextColumn Header="Продукты" Binding="{Binding Products}" Width="70" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
+                        <DataGridTextColumn Header="Специи и соль" Binding="{Binding SpicesAndSalt}" Width="*" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
+                        <DataGridTextColumn Header="Тара" Binding="{Binding Containers}" Width="60" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
+                        <DataGridTextColumn Header="Стеклотара" Binding="{Binding GlassContainers}" Width="*" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
+                        <DataGridTextColumn Header="Отметки бухгалтерии" Binding="{Binding AccountingDepartmentMarks}" Width="60" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Подписи">
+                <Grid>
+                    <Label Content="Приложение" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Center" Margin="0,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="584"/>
+                    <Label Content="Документов" HorizontalAlignment="Left" Margin="681,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Количество прописью" HorizontalAlignment="Left" Margin="96,-1,0,0" VerticalAlignment="Top" FontSize="8"/>
+                    <Label Content="Работники" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Фамилия, и., о." HorizontalAlignment="Left" Margin="96,30,0,0" VerticalAlignment="Top" FontSize="8"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="96,44,0,0" VerticalAlignment="Top" Width="120" IsEditable="True"/>
+                    <Label Content="Фамилия, и., о." HorizontalAlignment="Left" Margin="226,30,0,0" VerticalAlignment="Top" FontSize="8"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="226,44,0,0" VerticalAlignment="Top" Width="120" IsEditable="True"/>
+                    <Label Content="Фамилия, и., о." HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="8"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="356,44,0,0" VerticalAlignment="Top" Width="120" IsEditable="True"/>
+                    <Label Content="Фамилия, и., о." HorizontalAlignment="Left" Margin="96,62,0,0" VerticalAlignment="Top" FontSize="8"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="95,78,0,0" VerticalAlignment="Top" Width="120" IsEditable="True"/>
+                    <Label Content="Фамилия, и., о." HorizontalAlignment="Left" Margin="226,62,0,0" VerticalAlignment="Top" FontSize="8"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="226,78,0,0" VerticalAlignment="Top" Width="120" IsEditable="True"/>
+                    <Label Content="Фамилия, и., о." HorizontalAlignment="Left" Margin="356,62,0,0" VerticalAlignment="Top" FontSize="8"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="356,78,0,0" VerticalAlignment="Top" Width="120" IsEditable="True"/>
+                    <Label Content="Ведомость с документами принял и проверил" HorizontalAlignment="Left" Margin="10,115,0,0" VerticalAlignment="Top"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="280,118,0,0" VerticalAlignment="Top" Width="120" IsEditable="True"/>
+                    <Label Content="Должность" HorizontalAlignment="Left" Margin="280,102,0,0" VerticalAlignment="Top" FontSize="8"/>
+                    <Label Content="Решение руководителя:" HorizontalAlignment="Left" Margin="10,145,0,0" VerticalAlignment="Top"/>
+                    <TextBox AcceptsReturn="True" Margin="10,179,10,227" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" MinHeight="100" MaxHeight="150" />
+                    <Label Content="Руководитель" HorizontalAlignment="Left" Margin="456,115,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Должность" HorizontalAlignment="Left" Margin="550,102,0,0" VerticalAlignment="Top" FontSize="8"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="550,118,0,0" VerticalAlignment="Top" Width="120" IsEditable="True"/>
+                    <Button Content="Сохранить" HorizontalAlignment="Left" Margin="348,429,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.555,-0.607" Height="32" Width="106"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
